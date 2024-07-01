@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "hono": "^4.4.10",
+    "parse5": "^7.1.2",
     "preact": "^10.22.1",
     "preact-render-to-string": "^6.5.5"
   }

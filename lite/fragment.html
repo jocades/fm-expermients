@@ -1,3 +1,11 @@
+<title>Example</title>
+
+<div>
+  <h1>Hello, World!</h1>
+  <button @frag="">0</button>
+  <fragment lite:file="other.html"></fragment>
+</div>
+
 <script type="module">
   const $btn = document.querySelector('button')
   const $count = document.getElementById('count')
@@ -7,5 +15,3 @@
     $count.textContent = ++count
   }
 </script>
-
-<button>Count is <span id="count">0</span></button>

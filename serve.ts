@@ -1,6 +1,5 @@
 import fs from 'node:fs/promises'
 import { Hono, type Context, type Handler } from 'hono'
-import { trimTrailingSlash } from 'hono/trailing-slash'
 import { logger } from 'hono/logger'
 
 const HTTP_METHODS = ['get', 'post', 'put', 'delete', 'options'] as const
@@ -22,7 +21,7 @@ class Lite {
     const files = await fs.readdir('app', { recursive: true })
     // console.log(files)
 
-    for (let file of files) {
+    for (const file of files) {
       if (file === 'head.ts') {
         const mod = await import(`./app/${file}`)
         this.head = mod.default
