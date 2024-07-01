@@ -1,0 +1,10 @@
+<button>Count is <span id="count">0</span></button>
+<script type="module">
+  const $btn = document.querySelector('button')
+  const $count = document.getElementById('count')
+
+  let count = 0
+  $btn.onclick = () => {
+    $count.textContent = ++count
+  }
+</script>
