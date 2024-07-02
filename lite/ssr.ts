@@ -1,6 +1,6 @@
 import { open } from './util'
 
-function parse(
+function rewrite(
   src: string,
   selector: string,
   handlers:
@@ -25,7 +25,7 @@ export class SSREngine {
   title = 'SSR'
 
   async render(src: string) {
-    return parse(src, '*', {
+    return rewrite(src, '*', {
       element: async (el) => {
         switch (el.tagName) {
           case 'title':
@@ -41,11 +41,11 @@ export class SSREngine {
     })
   }
 
-  async renderRoot() {
-    const body = await this.render(await open('app/pages/index.html'))
+  async renderRoot(page = 'index.html') {
+    const body = await this.render(await open(`app/pages/${page}`))
     const head = await open('app/head.html')
 
-    return parse(head, '*', (el) => {
+    return rewrite(head, '*', (el) => {
       if (check.tag('title', el)) {
         el.setInnerContent(this.title)
       }
@@ -65,9 +65,9 @@ export class SSREngine {
   }
 }
 
-const engine = new SSREngine()
-
-let content = await engine.renderRoot()
-console.log(content)
-
-await Bun.write('build/index.html', content)
+// const engine = new SSREngine()
+//
+// let content = await engine.renderRoot()
+// console.log(content)
+//
+// await Bun.write('build/index.html', content)

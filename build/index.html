@@ -6,36 +6,22 @@
     <title>Changed Title</title>
   </head>
   <body>
-    <title>Test</title>
+    
 
-    <style>
-      main {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #f0f0f0;
-      }
-    </style>
+<style>
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+</style>
 
-    <main>
-      <h1>Test</h1>
-      <title>Example</title>
+<main>
+  <h1>Test</h1>
+  <!-- <fragment @src="fragment.html"></fragment> -->
+</main>
 
-      <div>
-        <button>0</button>
-        <other>Hello from other</other>
-      </div>
-
-      <script type="module">
-        const $btn = document.querySelector('button')
-        const $count = document.getElementById('count')
-
-        let count = 0
-        $btn.onclick = () => {
-          $count.textContent = ++count
-        }
-      </script>
-    </main>
   </body>
 </html>
