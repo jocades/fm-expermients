@@ -1,6 +1,3 @@
-// app/browser/shared.mjs
-var shared = "value";
-
 // ../rpc/packages/pcall/dist/src/util.ts
 function isObj(value) {
   return value !== null && typeof value === "object";
@@ -71,12 +68,9 @@ class SocketClient {
   }
 }
 
-// app/browser/index.mjs
+// app/browser/shared.mjs
+var shared = "value";
+
+// app/browser/other.ts
 console.log(shared);
 var ws = new SocketClient("ws://localhost:6969/ws");
-ws.on("connect", () => {
-  console.log("Connected");
-  ws.on("reload", () => {
-    location.reload();
-  });
-});
