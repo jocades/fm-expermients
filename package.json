@@ -6,16 +6,19 @@
     "dev": "bun --watch lite/serve.ts"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/css-tree": "^2.3.8",
+    "chokidar": "^3.6.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "css-tree": "^2.3.1",
     "hono": "^4.4.10",
     "parse5": "^7.1.2",
+    "pcall": "file:../rpc/packages/pcall/dist",
     "preact": "^10.22.1",
-    "preact-render-to-string": "^6.5.5",
-    "pcall": "file:../rpc/packages/pcall/dist"
+    "preact-render-to-string": "^6.5.5"
   }
 }

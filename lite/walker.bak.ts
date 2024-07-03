@@ -1,15 +1,31 @@
-import { parse, parseFragment } from 'parse5'
+import { parseFragment } from 'parse5'
+
+interface DocumentFragment {
+  nodeName: '#document-fragment'
+  childNodes: (Node | TextNode)[]
+}
 
 interface Node {
   nodeName: string
   attrs?: { name: string; value: string }[]
-  childNodes?: Node[]
+  childNodes: (Node | TextNode)[]
   parentNode: Node | null
+  value?: string
+}
+
+interface TextNode {
+  nodeName: '#text'
+  value: string
+  parentNode: Node
+}
+
+export function parse5(src: string) {
+  return parseFragment(src) as DocumentFragment
 }
 
 type WalkerCallback = (node: Node, depth: number) => boolean | void
 
-function walk(node: Node, cb: WalkerCallback, depth = 0) {
+export function walk(node: any, cb: WalkerCallback, depth = 0) {
   if (cb(node, depth)) {
     return true // stop walking if callback returns true
   }

@@ -1,0 +1,28 @@
+<title>Extract</title>
+
+<script>
+  console.log('Loaded')
+
+  const x = 'Hello'
+
+  function onclick() {
+    console.log('Clicked')
+  }
+</script>
+
+<style>
+  button {
+    background: red;
+  }
+</style>
+
+<main>
+  <button>Click Me</button>
+  <fragment @src="other.html">
+    <p>I am a slot</p>
+
+    <footer @slot="footer">
+      <p>I am a footer</p>
+    </footer>
+  </fragment>
+</main>
